@@ -17,12 +17,8 @@ $(document).ready(function(){
                 points: 0,
                 cards: []
             },
-            deck: function(){
-                var deck = new Deck();
-                deck.createDeck();
-                deck.shuffle();
-                return deck.card_deck;
-            },
+            deck: DeckSingleton.getInstance(),
+
             startGame: function(){
                 $('.table').show();
 
@@ -39,7 +35,7 @@ $(document).ready(function(){
             },
             getCardFromDeck: function(player){
                 var player = (typeof player == 'string')? player: 'player',
-                    card = app.deck().shift();
+                    card = app.deck.getCard();
                 app[player].cards.push(card);
                 app[player].points += card.rank;
             },

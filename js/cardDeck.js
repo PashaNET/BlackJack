@@ -16,17 +16,13 @@ function Deck(){
             suits_length = suits.length;
         for(var i = 0; i < cards_length; i++){
             for(var j = 0; j < suits_length; j++){
-                var rank = parseInt(cards[i]);
+                var card = cards[i],
+                    rank = parseInt(card);
                 if(!rank){
-                    if(cards[i]=='A'){
-                        rank = 11;
-                    }
-                    else{
-                        rank = 10;
-                    }
+                    (card == 'A')? rank = 11 : rank = 10;
                 }
-                var img_name = cards[i] + suits[j];
-                this.card_deck.push(new Card(cards[i], rank, suits[j], img_name));
+                var img_name = card + suits[j];
+                this.card_deck.push(new Card(card, rank, suits[j], img_name));
             }
         }
     };
@@ -40,6 +36,30 @@ function Deck(){
             this.card_deck[j] = temp;
         }
     };
+
+    this.getCard = function(){
+        return this.card_deck.shift();
+    };
 }
+
+var DeckSingleton = (function(){
+    var instance;
+
+    function createInstance() {
+        var deck = new Deck;
+        deck.createDeck();
+        deck.shuffle();
+        return deck;
+    }
+
+    return {
+        getInstance: function () {
+            if (!instance) {
+                instance = createInstance();
+            }
+            return instance;
+        }
+    };
+})();
 
 
