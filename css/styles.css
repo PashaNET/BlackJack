@@ -1,0 +1,42 @@
+
+.table{
+    display:none;
+    height: 530px;
+    width: 900px;
+    background-image: url("../images/table.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+.container img{
+    margin-right: 5px;
+}
+
+#header{
+    text-align: center;
+}
+
+#score_dealer{
+    display: none;
+}
+#dealer{
+    text-align: center;
+    margin-top: 10px;
+}
+
+#player{
+    height: 110px;
+    text-align: center;
+    margin-top: 190px;
+}
+
+.buttons{
+    margin-top: 15px;
+    text-align: center;
+}
+
+.modal-dialog {
+    width: 300px !important;
+    margin: 15% auto !important;
+}

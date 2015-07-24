@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title>BlackJack</title>
+        <link rel="stylesheet" type="text/css" href="css/styles.css">
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="table">
+                <div id="header">
+                    <h3>DEALER</h3>
+                    <h4>Score: <span id="score_dealer"></span></h4>
+                </div>
+                <div id="dealer">
+
+                </div>
+                <div id="player">
+
+                </div>
+                <div class="buttons">
+                    <div class="btn btn-primary" id="get_button">Get card</div>
+                    <div class="btn btn-danger" id="stop_button">STOP</div>
+                    <h4>Score: <span id="score_player"></span></h4>
+                    <h3>PLAYER</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="results">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="modal_title"></h4>
+                    </div>
+                    <div class="modal-body" id="modal_body">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" id="play_again">Play again!</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script rel="script" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script rel="script" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script rel="script" src="js/cardDeck.js"></script>
+        <script rel="script" src="js/scripts.js"></script>
+    </body>
+</html>
