@@ -17,11 +17,12 @@ $(document).ready(function(){
                 points: 0,
                 cards: []
             },
-            deck: DeckSingleton.getInstance(),
+            deck: cardDeck.getInstance(),
 
             startGame: function(){
                 $('.table').show();
 
+               //deal two cards to player and dealer
                for(var i = 0; i < 2; i++){
                     app.getCardFromDeck('dealer');
                     app.getCardFromDeck('player');
@@ -100,10 +101,13 @@ $(document).ready(function(){
             showAndWriteResults: function(title){
                 var player_points = app.player.points,
                     dealer_points = app.dealer.points;
+
+                //show modal window
                 $('#modal_title').text(title);
                 $('#modal_body').html('<h3>Player: '+ player_points +'</h3> <h3>Dealer: '+ dealer_points +'</h3>');
                 $('#results').modal('show');
 
+                //send data to the server
                 var data = new FormData();
                 data.append('title', title);
                 data.append('player_points', player_points);
@@ -116,7 +120,7 @@ $(document).ready(function(){
                     processData: false,
                     contentType: false,
                     error: function(jqXHR, textStatus){
-                        alert(textStatus);
+                        alert(textStatus + ". Writing error!");
                     }
                 });
             },
